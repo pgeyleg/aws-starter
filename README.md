@@ -19,6 +19,18 @@ To run this playbook on your local machine, you must install the following prere
 
 You must also configure your local environment with your AWS credentials and you will also need to specify the ARN of the IAM role that your playbook will use to run provisioning tasks.  Your credentials must have permissions to assume this role.
 
+### macOS Environments
+
+On macOS environments, `boto` must be installed as follows:
+
+```bash
+$ sudo -H /usr/bin/python -m easy_install pip
+...
+...
+$ sudo -H /usr/bin/python -m pip install boto
+...
+...
+
 ## Getting Started
 
 1. Fork this repository to your own new repository
