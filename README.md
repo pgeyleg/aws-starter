@@ -30,6 +30,7 @@ $ sudo -H /usr/bin/python -m easy_install pip
 $ sudo -H /usr/bin/python -m pip install boto
 ...
 ...
+```
 
 ## Getting Started
 
