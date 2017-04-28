@@ -1,9 +1,9 @@
 # You can specify git tag, commit or branch for the version property
 - src: git@github.com:casecommons/aws-cloudformation.git
   scm: git
-  version: master
+  version: stack_overrides
   name: aws-cloudformation
 - src: git@github.com:casecommons/aws-sts.git
   scm: git
-  version: master
+  version: dot_notation
   name: aws-sts
