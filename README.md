@@ -53,6 +53,12 @@ $ sudo -H /usr/bin/python -m pip install boto
 
 - Variables related to configuring the [`aws-cloudformation`](https://github.com/casecommons/aws-cloudformation) role are prefixed with `cf_`
 
+## Release Notes
+
+### Version 0.1.0
+
+- First Release
+
 ## License
 
 Copyright (C) 2017.  Case Commons, Inc.
