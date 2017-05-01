@@ -3,6 +3,15 @@
 
 # aws-cloudformation role settings
 Stack.Name: "aws-starter"
+Stack.Description: Creates s3 buckets and KMS key
+Stack.Template: "templates/cfn.yml.j2"
+
+Stack.Tags:
+  org:business:owner: Casecommons
+  org:business:product: CloudFormation Resources
+  org:business:severity: High
+  org:tech:environment: "{{ env }}"
+  org:tech:contact: pema@casecommons.org
 
 # By default the aws-cloudformation role expects your stack template
 # to be defined in the templates/stack.yml.j2 file
