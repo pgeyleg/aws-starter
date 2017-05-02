@@ -55,6 +55,11 @@ $ sudo -H /usr/bin/python -m pip install boto
 
 ## Release Notes
 
+### Version 0.2.0
+
+- **NEW FEATURE** : Use stack overrides, a new syntax to override portions of the stack template
+- **NEW FEATURE** : Use dot notation syntax for STS configurations
+
 ### Version 0.1.0
 
 - First Release
