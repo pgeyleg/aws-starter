@@ -38,20 +38,20 @@ $ sudo -H /usr/bin/python -m pip install boto
 2. Review [`roles/requirements.yml`](./roles/requirements.yml) and modify if required
 3. Install roles by running `ansible-galaxy install -r roles/requirements.yml`
 4. Define environments in the [`inventory`](./inventory) file and [`group_vars`](./group_vars) folder
-5. Define a CloudFormation stack name in [`group_vars/all/vars.yml`](./group_vars/all/vars.yml) using the `cf_stack_name` variable
-6. Add the ARN of the IAM role to assume in each environment by configuring the `sts_role_arn` variable in `group_vars/<environment>/vars.yml`
-7. Define your CloudFormation template in [`templates/stack.yml.j2`](./templates/stack.yml.j2).  Alternatively you can reference a template included with the `aws-cloudformation` role by setting the `cf_stack_template` variable to the path of the template relative to the `aws-cloudformation` role folder (e.g. `cf_stack_name: "templates/network.yml.j2"`)
+5. Define a CloudFormation stack name in [`group_vars/all/vars.yml`](./group_vars/all/vars.yml) using the `Stack.Name` variable
+6. Add the ARN of the IAM role to assume in each environment by configuring the `Sts.Role` variable in `group_vars/<environment>/vars.yml`
+7. Define your CloudFormation template in [`templates/stack.yml.j2`](./templates/stack.yml.j2).  Alternatively you can reference a template included with the `aws-cloudformation` role by setting the `Stack.Template` variable to the path of the template relative to the `aws-cloudformation` role folder (e.g. `Stack.Template: "templates/network.yml.j2"`)
 8. Define environment-specific configuration settings as required in `group_vars/<environment>/vars.yml`
-9. If you have stack inputs, define them in using the `cf_stack_inputs` dictionary in [`group_vars/all/vars.yml`](./group_vars/all/vars.yml).  A common pattern is to then reference environment specific settings for each stack input.
+9. If you have stack inputs, define them in using the `Stack.Inputs` dictionary in [`group_vars/all/vars.yml`](./group_vars/all/vars.yml).  A common pattern is to then reference environment specific settings for each stack input.
 10. Deploy your stack by running `ansible-playbook site.yml -e env=<environment>`
 
 ## Conventions
 
-- Environment specific settings should always be prefixed with `config_`, unless you have environment specific settings for variables related to the [`aws-sts`](https://github.com/casecommons/aws-sts) or [`aws-cloudformation`](https://github.com/casecommons/aws-cloudformation) roles as defined below
+- Environment specific settings should always be prefixed with `Stack.Inputs.`, unless you have environment specific settings for variables related to the [`aws-sts`](https://github.com/casecommons/aws-sts) or [`aws-cloudformation`](https://github.com/casecommons/aws-cloudformation) roles as defined below
 
-- Variables related to configuring the [`aws-sts`](https://github.com/casecommons/aws-sts) role are prefixed with `sts_`
+- Variables related to configuring the [`aws-sts`](https://github.com/casecommons/aws-sts) role are prefixed with `Sts.`
 
-- Variables related to configuring the [`aws-cloudformation`](https://github.com/casecommons/aws-cloudformation) role are prefixed with `cf_`
+- Variables related to configuring the [`aws-cloudformation`](https://github.com/casecommons/aws-cloudformation) role are prefixed with `Stack.`
 
 ## Release Notes
 
