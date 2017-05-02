@@ -3,7 +3,7 @@
 
 # aws-cloudformation role settings
 Stack.Name: "aws-starter"
-Stack.Description: Creates s3 buckets and KMS key
+Stack.Description: AWS Starter Template
 
 Stack.Tags:
   org:business:owner: Casecommons
