@@ -55,6 +55,10 @@ $ sudo -H /usr/bin/python -m pip install boto
 
 ## Release Notes
 
+### Version 0.3.0
+
+- **ENHANCEMENT** : Disables updates to existing cloudformation resources
+
 ### Version 0.2.2
 
 - **BUG FIX** : Use templates/stack.yml.j2 cloudformation template by default
