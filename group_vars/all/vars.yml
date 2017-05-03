@@ -18,7 +18,6 @@ Stack.Tags:
 # Alternatively you can use a template published in the aws-cloudformation role
 # See https://github.com/docker-production-aws/aws-cloudformation
 # Stack.Template: 'templates/network.yml.j2'
-Stack.Template: "templates/cfn.yml.j2"
 
 # Define stack inputs as required
 Stack.Inputs.MyStackInput: "{{ config_my_stack_input }}"
