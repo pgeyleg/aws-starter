@@ -55,6 +55,10 @@ $ sudo -H /usr/bin/python -m pip install boto
 
 ## Release Notes
 
+### Version 0.2.2
+
+- **BUG FIX** : Use templates/stack.yml.j2 cloudformation template by default
+
 ### Version 0.2.1
 
 - **ENHANCEMENT** : Move Stack.Template specification after comments related to stack template
