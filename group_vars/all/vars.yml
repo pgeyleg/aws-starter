@@ -7,7 +7,7 @@ Stack.Description: AWS Starter Template
 
 Stack.Tags:
   org:business:owner: Casecommons
-  org:business:product: CloudFormation Resources
+  org:business:product: Product Description
   org:business:severity: High
   org:tech:environment: "{{ env }}"
   org:tech:contact: pema@casecommons.org
