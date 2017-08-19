@@ -9,6 +9,7 @@ This repository provides a starter template for getting started creating AWS inf
 To run this playbook on your local machine, you must install the following prerequisites:
 
 - Ansible 2.2 or higher
+- GNU Make 3.82 or higher
 - Python PIP package manager
 - The following PIP packages:
   - awscli
@@ -36,14 +37,45 @@ $ sudo -H /usr/bin/python -m pip install boto
 
 1. Fork this repository to your own new repository
 2. Review [`roles/requirements.yml`](./roles/requirements.yml) and modify if required
-3. Install roles by running `ansible-galaxy install -r roles/requirements.yml`
-4. Define environments in the [`inventory`](./inventory) file and [`group_vars`](./group_vars) folder
+3. Install roles by running `make roles`
+4. Define environments in the [`inventory`](./inventory) file and [`group_vars`](./group_vars) folder or alternatively runing `make environment/<new-environment>`
 5. Define a CloudFormation stack name in [`group_vars/all/vars.yml`](./group_vars/all/vars.yml) using the `Stack.Name` variable
 6. Add the ARN of the IAM role to assume in each environment by configuring the `Sts.Role` variable in `group_vars/<environment>/vars.yml`
 7. Define your CloudFormation template in [`templates/stack.yml.j2`](./templates/stack.yml.j2).  Alternatively you can reference a template included with the `aws-cloudformation` role by setting the `Stack.Template` variable to the path of the template relative to the `aws-cloudformation` role folder (e.g. `Stack.Template: "templates/network.yml.j2"`)
 8. Define environment-specific configuration settings as required in `group_vars/<environment>/vars.yml`
 9. If you have stack inputs, define them in using the `Stack.Inputs` dictionary in [`group_vars/all/vars.yml`](./group_vars/all/vars.yml).  A common pattern is to then reference environment specific settings for each stack input.
-10. Deploy your stack by running `ansible-playbook site.yml -e env=<environment>`
+10. Generate your stack templates by running `make generate/<environment>`
+11. Deploy your stack by running `make deploy/<environment>`
+
+### Make Commands
+
+The workflow includes various make commands that help simplify day-to-day tasks:
+
+- `make roles` - installs Ansible Galaxy roles
+- `make environment/<environment>` - creates a new environment in the [`inventory`](./inventory) file and [`group_vars`](./group_vars) folder
+- `make generate/<environment>` - generates templates for the specified environment
+- `make deploy/<environment>` - generates and deploys templates for the specified environment
+
+The various make commands also support the following flags:
+
+- `/disable_rollback` - disables stack rollback when creating a stack and a failure occurs
+- `/disable_policy` - temporarily disables the configured stack policy for a deployment
+- `/debug` - applies the flag `debug=true` to display debug task output defined in the playbook
+- `/verbose` - applieds the flag `-vvv` to provide verbose Ansible output
+
+You can use any combination of the above flags in combination with the various make commands:
+
+```
+# Deploy to dev environment
+$ make deploy/dev /disable_rollback /debug
+...
+...
+
+# Generate templates for qa environment
+$ make generate/qa /verbose
+...
+...
+```
 
 ## Conventions
 
@@ -54,6 +86,10 @@ $ sudo -H /usr/bin/python -m pip install boto
 - Variables related to configuring the [`aws-cloudformation`](https://github.com/casecommons/aws-cloudformation) role are prefixed with `Stack.`
 
 ## Release Notes
+
+### Version 0.4.0
+
+- **ENHANCEMENT** : Add Make workflow
 
 ### Version 0.3.0
 

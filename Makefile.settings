@@ -1,0 +1,21 @@
+# Deployment flags
+FLAGS = $(ROLLBACK_FLAG) $(POLICY_FLAG) $(DEBUG_FLAG) $(VERBOSE_FLAG)
+ROLLBACK_FLAG = $(if $(findstring /disable_rollback,$(ARGS)),-e 'Stack.DisableRollback=true',)
+POLICY_FLAG = $(if $(findstring /disable_policy,$(ARGS)),-e 'Stack.DisablePolicy=true',)
+DEBUG_FLAG = $(if $(findstring /debug,$(ARGS)),-e 'debug=true' -vvv,)
+VERBOSE_FLAG = $(if $(findstring /verbose,$(ARGS)),-vvv,)
+
+# Set shell
+SHELL=/bin/bash -e -o pipefail
+
+# Process arguments
+ARGS = $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+
+# Cosmetics
+YELLOW := "\e[1;33m"
+NC := "\e[0m"
+INFO := @bash -c 'printf $(YELLOW); echo "=> $$1"; printf $(NC)' MESSAGE
+
+# Do not interpret arguments as targets
+%: 
+	@:
