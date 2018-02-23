@@ -1,4 +1,4 @@
-build
+/build
 roles/*
 !roles/requirements.yml
 *.retry
