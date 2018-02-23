@@ -61,7 +61,7 @@ The various make commands also support the following flags:
 - `/disable_rollback` - disables stack rollback when creating a stack and a failure occurs
 - `/disable_policy` - temporarily disables the configured stack policy for a deployment
 - `/debug` - applies the flag `debug=true` to display debug task output defined in the playbook
-- `/verbose` - applieds the flag `-vvv` to provide verbose Ansible output
+- `/verbose` - applies the flag `-vvv` to provide verbose Ansible output
 
 You can use any combination of the above flags in combination with the various make commands:
 
@@ -86,6 +86,10 @@ $ make generate/qa /verbose
 - Variables related to configuring the [`aws-cloudformation`](https://github.com/casecommons/aws-cloudformation) role are prefixed with `Stack.`
 
 ## Release Notes
+
+### Version 2.4.0
+
+- **ENHANCEMENT** : Ansible 2.4 supports
 
 ### Version 0.4.0
 
