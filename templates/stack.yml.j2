@@ -9,11 +9,11 @@ Parameters:
 
 Resources:
   StarterBucket:
-    Type: "AWS::S3::Bucket"
+    Type: AWS::S3::Bucket
     Properties:
       BucketName:
-        Fn::Sub: "${AWS::AccountId}-starter-bucket-${MyStackInput}"
+        Fn::Sub: ${AWS::AccountId}-starter-bucket-${MyStackInput}
       Tags:
         - Key: Name
           Value: 
-            Fn::Sub: "${AWS::AccountId}-starter-bucket-${MyStackInput}"
+            Fn::Sub: ${AWS::AccountId}-starter-bucket-${MyStackInput}

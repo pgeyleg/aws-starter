@@ -22,7 +22,7 @@ generate/%:
 
 deploy/%:
 	${INFO} "Deploying environment $*..."
-	ansible-playbook site.yml -e env=$* -e 'Stack.DisablePolicy=true' $(FLAGS)
+	ansible-playbook site.yml -e env=$* $(FLAGS)
 	${INFO} "Deployment complete"
 
 delete/%:

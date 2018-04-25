@@ -20,14 +20,15 @@ Stack.Tags:
 # Stack.Template: 'templates/network.yml.j2'
 
 # CloudFormation settings
+# NOTE THAT STACK POLICIES HAVE COMPATIBILITY ISSUES WITH CHANGE SETS
 # This sets a policy that disables updates to existing resources
 # This requires you to explicitly set the cf_disable_stack_policy flag to true when running the playbook
-Stack.Policy:
-  Statement:
-  - Effect: "Deny"
-    Action: "Update:*"
-    Principal: "*"
-    Resource: "*"
+# Stack.Policy:
+#   Statement:
+#   - Effect: "Deny"
+#     Action: "Update:*"
+#     Principal: "*"
+#     Resource: "*"
 
 # Define stack inputs as required
-Stack.Inputs.MyStackInput: "{{ 1000 }}"
+# Stack.Inputs.MyStackInput: "{{ 1000 }}"
