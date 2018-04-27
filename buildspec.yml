@@ -1,0 +1,13 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - make roles
+  build:
+    commands:
+      - make generate/acceptance /codebuild
+      - make generate/demo /codebuild
+      - make generate/sandbox /codebuild
+artifacts:
+  files:
+    - build/*

@@ -8,15 +8,16 @@ This repository provides a starter template for getting started creating AWS inf
 
 To run this playbook on your local machine, you must install the following prerequisites:
 
-- Ansible 2.2 or higher
+- Ansible 2.4 or higher
 - GNU Make 3.82 or higher
 - Python PIP package manager
 - The following PIP packages:
   - awscli
-  - boto
+  - boto3
   - netaddr
-  - ndg-httpsclient
+  - yq
 - jq
+- yq
 
 You must also configure your local environment with your AWS credentials and you will also need to specify the ARN of the IAM role that your playbook will use to run provisioning tasks.  Your credentials must have permissions to assume this role.
 
@@ -87,9 +88,14 @@ $ make generate/qa /verbose
 
 ## Release Notes
 
+### Version 2.5.0
+
+- **ENHANCEMENT** : Ansible 2.5 support
+- **ENHANCEMENT** : Improve make/environment command
+
 ### Version 2.4.0
 
-- **ENHANCEMENT** : Ansible 2.4 supports
+- **ENHANCEMENT** : Ansible 2.4 support
 
 ### Version 0.4.0
 

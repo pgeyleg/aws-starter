@@ -1,7 +1,11 @@
+# Defaults
+ACCOUNT_ID ?= <enter-account-id>
+
 # Deployment flags
-FLAGS = $(ROLLBACK_FLAG) $(POLICY_FLAG) $(DEBUG_FLAG) $(VERBOSE_FLAG) $(LEGACY_FLAG) $(CODEBUILD_FLAG) $(ANSIBLE_ARGS)
+FLAGS = $(ROLLBACK_FLAG) $(POLICY_FLAG) $(STS_DISABLED_FLAG) $(DEBUG_FLAG) $(VERBOSE_FLAG) $(LEGACY_FLAG) $(CODEBUILD_FLAG) $(ANSIBLE_ARGS)
 ROLLBACK_FLAG = $(if $(findstring /disable_rollback,$(ARGS)),-e 'Stack.DisableRollback=true',)
 POLICY_FLAG = $(if $(findstring /disable_policy,$(ARGS)),-e 'Stack.DisablePolicy=true',)
+STS_DISABLED_FLAG = $(if $(findstring /disable_sts,$(ARGS)),-e 'Sts.Disabled=true',)
 DEBUG_FLAG = $(if $(findstring /debug,$(ARGS)),-e 'debug=true',)
 VERBOSE_FLAG = $(if $(findstring /verbose,$(ARGS)),-vvv,)
 CODEBUILD_FLAG = $(if $(findstring /codebuild,$(ARGS)),-e 'Stack.BuildFolder=build',)
