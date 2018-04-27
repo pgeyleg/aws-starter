@@ -17,7 +17,6 @@ To run this playbook on your local machine, you must install the following prere
   - netaddr
   - yq
 - jq
-- yq
 
 You must also configure your local environment with your AWS credentials and you will also need to specify the ARN of the IAM role that your playbook will use to run provisioning tasks.  Your credentials must have permissions to assume this role.
 

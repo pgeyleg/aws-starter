@@ -5,9 +5,10 @@ phases:
       - make roles
   build:
     commands:
-      - make generate/acceptance /codebuild
-      - make generate/demo /codebuild
+      - make generate/build /codebuild
       - make generate/sandbox /codebuild
+      - make generate/staging /codebuild
+      - make generate/users /codebuild
 artifacts:
   files:
     - build/*

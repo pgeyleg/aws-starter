@@ -1,5 +1,5 @@
 # Sts settings
-Sts.Role: arn:aws:iam::149037021253:role/admin
+Sts.Role: arn:aws:iam::060119190736:role/admin
 Sts.Region: us-east-1
 
 # Stack inputs
